@@ -14,32 +14,27 @@ public class C01_TestNG_IlkTest {
 
     @Test
     public void aramaTesti(){
-
-// gerekli ayarlari yapin
+        // gerekli ayarlari yapin
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-// testotomasyonu anasayfaya gidin
+        // testotomasyonu anasayfaya gidin
         driver.get("https://www.testotomasyonu.com");
 
-// phone icin arama yapin
-        WebElement aramaKutusu = driver.findElement(By.id("global-search-input"));
+        // phone icin arama yapin
+        WebElement aramaKutusu = driver.findElement(By.id("global-search"));
         aramaKutusu.sendKeys("phone" + Keys.ENTER);
 
-// arama sonucunda urun bulunabildigini test edin
+        // arama sonucunda urun bulunabildigini test edin
+        WebElement sonucYaziElementi = driver.findElement(By.className("product-count-text"));
 
-        WebElement sonucYaziElementi = driver.findElement(By.id("global-count-text"));
+        String unexpectedSonucYazisi = "0 Products Found";
+        String actualSonucYazisi = sonucYaziElementi.getText();
 
-        String unexpectedSonucYazisi = "0 pruduct found";
-        String unexpectedYazisi = sonucYaziElementi.getText();
+        Assert.assertNotEquals(actualSonucYazisi,unexpectedSonucYazisi);
 
-        Assert.assertNotEquals(unexpectedSonucYazisi, unexpectedYazisi);
-
-// sayfayi kapatin
+        // sayfayi kapatin
         driver.quit();
-
-
-
     }
 }
