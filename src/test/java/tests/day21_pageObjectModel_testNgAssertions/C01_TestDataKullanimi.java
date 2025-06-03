@@ -1,4 +1,4 @@
-package tests.day20_pageObjectModel;
+package tests.day21_pageObjectModel_testNgAssertions;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -7,30 +7,18 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-public class C05_TestDataKullanimi {
+public class C01_TestDataKullanimi {
+    /*
+        POM'in temel hedefi
+        locate, test datasi veya test calistirma tercihlerinde
+        herhangi bir degisiklik olursa
+        Test method'una gelmeden
+        belirlenmis yerlerdeki duzeltmeleri 1 kere yapip
+        TUM test method'larinin update edilmesini saglamaktir
+     */
 
     @Test
     public void pozitifLogintesti(){
-        /*
-            Page Object Model'in temel amaci
-            Test Method'larini dinamik yapmak
-            yani locate, browser veya test datasi degistiginde
-            icinde oldugumuz C05 class'ina gelmeye zorunlu olmamamizdir
-
-            locate'leri Page class'i ile hallettik
-
-            test datalarini da configuration.properties ile cozmek istiyoruz
-
-            java ile bir dosyaya ulasip oradaki bilgileri almak icin
-            dosyaYolu, FileInputStream ve loop'lara ihtiyac var
-            ama herseferinde bu islemleri yapmak zahmetli olacagindan
-
-            POM'de configuration.properties dosyasina gidip
-            bizim verdigimiz key'e ait value'yu bize getirecek
-            bir MEYDANCI kullaniyoruz
-
-         */
-
 
         // 1- https://www.testotomasyonu.com/ anasayfasina gidin
         // Driver.getDriver().get("https://www.testotomasyonu.com/"); // Dinamik degil
@@ -41,15 +29,14 @@ public class C05_TestDataKullanimi {
         ReusableMethods.tumSayfaResimCekTarihli(Driver.getDriver());
         ReusableMethods.bekle(2);
         testotomasyonuPage.accountLinki.click(); // Dinamik
+
         // 3- Kullanici email'i olarak gecerli email girin
         // testotomasyonuPage.emailKutusu.sendKeys("wise@gmail.com"); // Dinamik degil
         testotomasyonuPage.emailKutusu.sendKeys(ConfigReader.getProperty("toGecerliEmail")); // Dinamik
 
-
         // 4- Kullanici sifresi olarak gecerli password girin
         // testotomasyonuPage.passwordKutusu.sendKeys("123456"); // Dinamik degil
         testotomasyonuPage.passwordKutusu.sendKeys(ConfigReader.getProperty("toGecerliPassword")); // Dinamik
-
 
         // 5- Login butonuna basarak login olun
         testotomasyonuPage.loginButonu.click(); // Dinamik
@@ -66,5 +53,4 @@ public class C05_TestDataKullanimi {
 
 
     }
-
 }

@@ -7,7 +7,7 @@ import utilities.Driver;
 public class C01_BasicDriverClassKullanimi {
 
     @Test
-    public void testOtomasyonuTesti() {
+    public void testotomasyonuTesti(){
 
         // testotomasyonu anasayfaya gidin
         Driver.getDriver().get("https://www.testotomasyonu.com");
@@ -20,10 +20,11 @@ public class C01_BasicDriverClassKullanimi {
 
         // sayfayi kapatin
         Driver.quitDriver();
+
     }
 
     @Test
-    public void wiseOtomasyonuTesti() {
+    public void wisequarterTesti(){
 
         // testotomasyonu anasayfaya gidin
         Driver.getDriver().get("https://www.wisequarter.com");
@@ -36,15 +37,16 @@ public class C01_BasicDriverClassKullanimi {
 
         // sayfayi kapatin
         Driver.quitDriver();
+
     }
 
     @Test
-    public void youtubeOtomasyonuTesti() {
+    public void youtubeTesti(){
 
         // youtube anasayfaya gidin
         Driver.getDriver().get("https://www.youtube.com");
 
-        // url'in testotomasyonu icerdigini test edin
+        // url'in youtube icerdigini test edin
         String expectedUrlIcerik = "youtube";
         String actualUrl = Driver.getDriver().getCurrentUrl();
 
@@ -52,5 +54,7 @@ public class C01_BasicDriverClassKullanimi {
 
         // sayfayi kapatin
         Driver.quitDriver();
+
     }
+
 }

@@ -89,8 +89,8 @@ public class C03_Priority {
 
         String expectedIsimIcerik = "phone";
         String actualIsim = driver.findElement(By.xpath("//*[@class=' heading-sm mb-4']"))
-                .getText()
-                .toLowerCase();
+                                    .getText()
+                                    .toLowerCase();
 
         Assert.assertTrue(actualIsim.contains(expectedIsimIcerik));
 

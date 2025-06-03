@@ -13,7 +13,7 @@ import java.util.List;
 public class C02_PageClassKullanimi {
 
     @Test
-    public void aramaTesti() {
+    public void aramaTesti(){
         // 1. Testotomasyonu anasayfaya gidip,
         // url'in testotomasyonu icerdigini test edin
 
@@ -35,25 +35,33 @@ public class C02_PageClassKullanimi {
         String unexpectedSonucYazisi = "0 Products Found";
         String actualSonucYazisi = testotomasyonuPage.aramaSonucYaziElementi.getText();
 
-        Assert.assertNotEquals(actualSonucYazisi, unexpectedSonucYazisi);
+        Assert.assertNotEquals(actualSonucYazisi,unexpectedSonucYazisi);
 
         // 3. arama sonucunda 4 urun bulunabildigini test edin
 
         int expectedUrunSayisi = 4;
-        int actualUrunSayisi = testotomasyonuPage.bulunanUrunElementleriList.size();
-        Assert.assertEquals(actualUrunSayisi, expectedUrunSayisi);
+        int actualUrunSayisi = testotomasyonuPage.bulunanUrunElementleriList
+                                                    .size();
+        Assert.assertEquals(actualUrunSayisi,expectedUrunSayisi);
+
 
 
         // 4. ilk urunu tiklayip,
-        testotomasyonuPage.bulunanUrunElementleriList.get(0).click();
+        testotomasyonuPage.bulunanUrunElementleriList
+                            .get(0)
+                            .click();
 
         //    acilan sayfadaki urun isminde
         //    case sensitive olmadan phone bulundugunu test edin
 
 
         String expectedIsimIcerik = "phone";
-        String actualIsim = testotomasyonuPage.ilkUrunSayfasindakiIsimElementi.getText();
+        String actualIsim = testotomasyonuPage.ilkUrunSayfasindakiIsimElementi
+                                                .getText();
 
         Assert.assertTrue(actualIsim.contains(expectedIsimIcerik));
+
+        // sayfayi kapatin
+        Driver.quitDriver();
     }
 }
