@@ -10,7 +10,7 @@
 
 <suite name="sistem test suite">
     <test name="sistem testi">
-        
+
         <packages>
             <package name="tests.day19_testNG"></package>
         </packages>
@@ -31,7 +31,5 @@
             <class name="tests.day21_pageObjectModel_testNgAssertions.C02_SingletonPatternKullanimi"></class>
             <class name="tests.day21_pageObjectModel_testNgAssertions.C04_SoftAssertion"></class>
         </classes>
-        
-        
     </test>
 </suite>
