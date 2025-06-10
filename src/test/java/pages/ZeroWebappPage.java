@@ -8,6 +8,7 @@ import utilities.Driver;
 public class ZeroWebappPage {
 
     public ZeroWebappPage(){
+
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
